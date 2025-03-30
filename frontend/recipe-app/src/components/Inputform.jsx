@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./InputForm.css";
+import "./Inputform.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Toast, ToastContainer } from "react-bootstrap";
 
