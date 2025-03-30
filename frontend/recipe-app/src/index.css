@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+html, body {
+  background-color: #f9f7f3 !important;
+  color: #212529 !important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+#root {
+  font-family: "Lora", serif;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Keep center alignment */
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 60px; /* Push content below navbar */
+}
+
+
+.carousel-img {
+  height: 400px; /* Adjust height as needed */
+  object-fit: cover; /* Ensures images fill the area properly */
+}
+

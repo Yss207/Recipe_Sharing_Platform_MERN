@@ -1,0 +1,108 @@
+.form {
+  width: 320px;
+  padding: 13px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: visible;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control label {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: #333;
+}
+
+.input {
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 13px;
+  transition: border-color 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+/* Target only the button inside .form */
+.form button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  font-size: 14px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Button Hover Animation */
+.form button:hover {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(255, 126, 95, 0.4);
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+p span {
+  position: relative;
+  display: inline-block;
+}
+
+p span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: #ff7b00; /* Adjust to match your theme */
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+p:hover span::after {
+  width: 100%;
+  left: 0;
+}
+
+
+/* Toast Notification */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+}
+
+.toast {
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}

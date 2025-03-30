@@ -1,0 +1,50 @@
+/* Home Section */
+.home {
+  background-color: #f8f9fa; /* Light background */
+  padding: 20px 0;
+}
+
+/* Carousel */
+.carousel {
+  max-width: 100%;
+  margin: auto;
+}
+
+/* Carousel Image */
+.c-img {
+  height: 500px; /* Ensures all images have a fixed height */
+  object-fit: cover; /* Prevents image distortion */
+}
+
+/* Carousel Caption */
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6); /* Dark background for readability */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: auto;
+  z-index: -1; /* Push it behind other content */
+}
+
+.bg svg {
+  width: 100%; /* Ensure the SVG takes full width */
+  height: auto;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
