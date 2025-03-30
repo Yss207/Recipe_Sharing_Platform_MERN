@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const AddFoodRecipe = () => {
   const [recipeData, setRecipeData] = useState({});
   const navigate = useNavigate();
@@ -22,7 +24,7 @@ const AddFoodRecipe = () => {
     console.log(recipeData);
 
     await axios
-      .post("http://localhost:5000/recipe", recipeData, {
+      .post(`${API_BASE_URL}/recipe`, recipeData, {
         headers: {
           "Content-Type": "multipart/form-data",
           authorization: "bearer " + localStorage.getItem("token"),

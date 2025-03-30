@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaUtensils, FaHeart, FaShareAlt } from "react-icons/fa";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export default function RecipeDetails() {
   const recipe = useLoaderData();
   const [isFavRecipe, setIsFavRecipe] = useState(false);
-  const token = localStorage.getItem("token"); // Check if user is logged in
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     if (!token) return;
@@ -34,11 +36,10 @@ export default function RecipeDetails() {
 
   return (
     <div className="container mt-5">
-      {/* Top Row: Image & Recipe Info */}
       <div className="row align-items-center">
         <div className="col-md-6 text-center">
           <img
-            src={`http://localhost:5000/images/${recipe.coverImage}`}
+            src={`${API_BASE_URL}/images/${recipe.coverImage}`}
             className="img-fluid rounded shadow"
             alt={recipe.title}
             style={{ maxWidth: "100%", borderRadius: "12px" }}
@@ -59,7 +60,6 @@ export default function RecipeDetails() {
         </div>
       </div>
 
-      {/* Bottom Row: Ingredients & Instructions */}
       <div className="row mt-4">
         <div className="col-md-4">
           <div className="p-3 border rounded shadow">
@@ -103,7 +103,6 @@ export default function RecipeDetails() {
                 {isFavRecipe ? "Remove from Favorites" : "Add to Favorites"}
               </button>
 
-              {/* Share Button */}
               <button
                 className="btn btn-outline-primary mt-3"
                 onClick={handleShare}

@@ -6,13 +6,15 @@ import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const MyRecipes = () => {
   const myRecipes = useLoaderData();
   const navigate = useNavigate();
 
   const onDelete = async (id) => {
     if (window.confirm("Are you sure you want to retire this recipe?")) {
-      await axios.delete(`http://localhost:5000/recipe/${id}`);
+      await axios.delete(`${API_BASE_URL}/recipe/${id}`);
       window.location.reload();
     }
   };
@@ -108,7 +110,7 @@ const MyRecipes = () => {
                   }}
                 >
                   <img
-                    src={`http://localhost:5000/images/${recipe.coverImage}`}
+                    src={`${API_BASE_URL}/images/${recipe.coverImage}`}
                     alt={recipe.title}
                     className="card-img-top"
                     style={{
@@ -150,9 +152,7 @@ const MyRecipes = () => {
                   </div>
 
                   {/* Action Icons */}
-                  {/* Action Icons - Properly Aligned */}
                   <div className="d-flex justify-content-center align-items-center gap-4 mt-3">
-                    {/* Edit Icon - Recipe Tune-Up */}
                     <Link
                       to={`/editRecipe/${recipe._id}`}
                       style={{
@@ -161,7 +161,7 @@ const MyRecipes = () => {
                         cursor: "pointer",
                         transition: "transform 0.2s ease-in-out",
                         display: "flex",
-                        alignItems: "center", // Ensures vertical alignment
+                        alignItems: "center",
                       }}
                       onMouseEnter={(e) =>
                         (e.currentTarget.style.transform = "scale(1.2)")
@@ -174,7 +174,6 @@ const MyRecipes = () => {
                       <FaEdit />
                     </Link>
 
-                    {/* Delete Icon - Recipe Retirement */}
                     <MdDelete
                       onClick={() => onDelete(recipe._id)}
                       style={{
@@ -183,7 +182,7 @@ const MyRecipes = () => {
                         cursor: "pointer",
                         transition: "transform 0.2s ease-in-out",
                         display: "flex",
-                        alignItems: "center", // Ensures vertical alignment
+                        alignItems: "center",
                       }}
                       onMouseEnter={(e) =>
                         (e.currentTarget.style.transform = "scale(1.2)")

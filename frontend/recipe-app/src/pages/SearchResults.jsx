@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BsStopwatchFill } from "react-icons/bs";
 import { MdFoodBank } from "react-icons/md";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 const SearchResults = () => {
   const { searchTerm } = useParams();
@@ -18,7 +20,7 @@ const SearchResults = () => {
         console.log(`Fetching results for: ${searchTerm}`);
 
         const response = await axios.get(
-          `http://localhost:5000/recipe/search?query=${searchTerm}`
+          `${API_BASE_URL}/recipe/search?query=${searchTerm}`
         );
         console.log("API Response:", response.data);
 

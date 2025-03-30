@@ -4,6 +4,8 @@ import { BsStopwatchFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { MdFoodBank } from "react-icons/md";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Favorites = () => {
   const navigate = useNavigate();
   const [favRecipes, setFavRecipes] = useState([]);
@@ -113,7 +115,7 @@ const Favorites = () => {
                   }}
                 >
                   <img
-                    src={`http://localhost:5000/images/${recipe.coverImage}`}
+                    src={`${API_BASE_URL}/images/${recipe.coverImage}`}
                     alt={recipe.title}
                     className="card-img-top"
                     style={{

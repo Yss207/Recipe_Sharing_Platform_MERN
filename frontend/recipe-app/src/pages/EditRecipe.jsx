@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const EditRecipe = () => {
   const [recipeData, setRecipeData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -13,7 +15,7 @@ const EditRecipe = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/recipe/${id}`, {
+        const response = await axios.get(`${API_BASE_URL}/recipe/${id}`, {
           headers: { authorization: "Bearer " + localStorage.getItem("token") },
         });
 
@@ -58,7 +60,7 @@ const EditRecipe = () => {
     };
 
     try {
-      await axios.put(`http://localhost:5000/recipe/${id}`, updatedRecipeData, {
+      await axios.put(`${API_BASE_URL}/recipe/${id}`, updatedRecipeData, {
         headers: {
           "Content-Type": "multipart/form-data",
           authorization: "Bearer " + localStorage.getItem("token"),

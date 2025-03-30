@@ -3,26 +3,27 @@ import axios from "axios";
 import { BsStopwatchFill } from "react-icons/bs";
 import { MdFoodBank } from "react-icons/md";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const categories = [
   { name: "All", color: "#6c757d" },
-  { name: "Indian", color: "#ff9800" }, // Bright orange (saffron)
-  { name: "American", color: "#1e3a8a" }, // Deep blue (U.S. flag)
-  { name: "European", color: "#2e7d32" }, // Forest green (Eco-friendly Europe)
-  { name: "Chinese", color: "#d32f2f" }, // Deep red (Chinese culture)
-  { name: "Desserts & Beverages", color: "#ff69b4" }, // Changed to a soft pink
+  { name: "Indian", color: "#ff9800" },
+  { name: "American", color: "#1e3a8a" },
+  { name: "European", color: "#2e7d32" },
+  { name: "Chinese", color: "#d32f2f" },
+  { name: "Desserts & Beverages", color: "#ff69b4" },
 ];
 
 export default function AllRecipes() {
   const [recipes, setRecipes] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // Fetch recipes based on category
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        let url = "http://localhost:5000/recipe";
+        let url = `${API_BASE_URL}/recipe`;
         if (selectedCategory !== "All") {
-          url = `http://localhost:5000/recipe/category/${encodeURIComponent(
+          url = `${API_BASE_URL}/recipe/category/${encodeURIComponent(
             selectedCategory
           )}`;
         }
@@ -40,7 +41,6 @@ export default function AllRecipes() {
 
   return (
     <div className="container mt-5">
-      {/* Hero Section */}
       <div
         className="hero-section position-relative"
         style={{
@@ -48,7 +48,7 @@ export default function AllRecipes() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          height: "250px", // Adjustable height
+          height: "250px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -58,7 +58,6 @@ export default function AllRecipes() {
           overflow: "hidden",
         }}
       >
-        {/* Dark Overlay for Better Readability */}
         <div
           className="overlay"
           style={{
@@ -67,12 +66,11 @@ export default function AllRecipes() {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark overlay for contrast
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
             zIndex: 1,
           }}
         ></div>
 
-        {/* Text Content */}
         <div
           className="text-content position-relative"
           style={{
@@ -80,7 +78,7 @@ export default function AllRecipes() {
             fontWeight: "bold",
             fontSize: "2.5rem",
             textShadow: "3px 3px 10px rgba(0, 0, 0, 0.8)",
-            zIndex: 2, // Ensures text appears above overlay
+            zIndex: 2,
             padding: "20px",
           }}
         >
@@ -94,12 +92,12 @@ export default function AllRecipes() {
               marginTop: "10px",
             }}
           >
-            Find & share your favorite dishes from the various categories available below.
+            Find & share your favorite dishes from the various categories
+            available below.
           </p>
         </div>
       </div>
 
-      {/* Category Buttons */}
       <div className="d-flex justify-content-center gap-2 mb-3 mt-3 flex-wrap">
         {categories.map((cat) => (
           <button
@@ -129,7 +127,6 @@ export default function AllRecipes() {
         ))}
       </div>
 
-      {/* Recipes List */}
       <div className="row">
         {recipes.length > 0 ? (
           recipes.map((recipe) => (
@@ -156,7 +153,6 @@ export default function AllRecipes() {
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                {/* Image */}
                 <div
                   className="p-2"
                   style={{
@@ -166,7 +162,7 @@ export default function AllRecipes() {
                   }}
                 >
                   <img
-                    src={`http://localhost:5000/images/${recipe.coverImage}`}
+                    src={`${API_BASE_URL}/images/${recipe.coverImage}`}
                     alt={recipe.title}
                     className="card-img-top"
                     style={{
@@ -185,19 +181,11 @@ export default function AllRecipes() {
                     }}
                   />
                 </div>
-
-                {/* Card Body */}
                 <div
                   className="card-body p-2"
                   style={{
                     background: "#f9f9f9",
                     transition: "background 0.3s ease-in-out",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#f1f1f1";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#f9f9f9";
                   }}
                 >
                   <h6 className="fw-bold fs-5 mt-2">{recipe.title}</h6>
