@@ -123,7 +123,7 @@ const Recipeitems = () => {
       <div className="mt-4 justify-content-center d-flex">
         <button
           className="btn btn-outline-primary fw-bold"
-          onClick={() => navigate("/recipe/category")}
+          onClick={() => navigate("/recipes")}
           style={{
             fontSize: "1.1rem",
             padding: "10px 20px",
