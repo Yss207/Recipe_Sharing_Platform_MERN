@@ -4,8 +4,10 @@ import "./InputForm.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Toast, ToastContainer } from "react-bootstrap";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Inputform = ({ setIsOpen }) => {
-  const [name, setName] = useState(""); // New state for name
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
@@ -16,18 +18,15 @@ const Inputform = ({ setIsOpen }) => {
     e.preventDefault();
     let endpoint = isSignUp ? "signUp" : "login";
 
-    // Create request payload
-    const payload = isSignUp
-      ? { name, email, password } // Include name only for sign-up
-      : { email, password };
+    const payload = isSignUp ? { name, email, password } : { email, password };
 
     await axios
-      .post(`http://localhost:5000/${endpoint}`, payload)
+      .post(`${API_BASE_URL}/${endpoint}`, payload)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
         setShowToast(true);
-        setTimeout(() => setIsOpen(), 2000); // Close modal after showing toast
+        setTimeout(() => setIsOpen(), 2000);
       })
       .catch((data) => setError(data.response?.data?.error));
   };
@@ -48,7 +47,6 @@ const Inputform = ({ setIsOpen }) => {
         </Toast>
       </ToastContainer>
       <form className="form" onSubmit={handleOnSubmit}>
-        {/* === ADDING DYNAMIC TITLE HERE === */}
         <h2>{isSignUp ? "Register" : "Login"}</h2>
         {isSignUp && (
           <div className="form-control">

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Featured = () => {
   const [randomRecipe, setRandomRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -12,7 +14,7 @@ const Featured = () => {
   useEffect(() => {
     const fetchRandomRecipe = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/recipe/random");
+        const response = await axios.get(`${API_BASE_URL}/recipe/random`);
         setRandomRecipe(response.data);
       } catch (error) {
         setError("Failed to fetch recipe");
@@ -38,10 +40,9 @@ const Featured = () => {
     <>
       <section className="container my-5">
         <div className="row align-items-center">
-          {/* Image Section */}
           <div className="col-md-6 position-relative">
             <img
-              src={`http://localhost:5000/images/${randomRecipe.coverImage}`}
+              src={`${API_BASE_URL}/images/${randomRecipe.coverImage}`}
               alt={randomRecipe.title}
               className="img-fluid rounded"
               style={{
@@ -56,11 +57,15 @@ const Featured = () => {
             </span>
           </div>
 
-          {/* Text Section */}
           <div className="col-md-6">
             <h2 className="fw-bold">{randomRecipe.title}</h2>
             <p className="text-muted">{randomRecipe.desc}</p>
-            <Link to={`/recipe/${randomRecipe._id}`} className="btn btn-outline-dark">View Recipe</Link>
+            <Link
+              to={`/recipe/${randomRecipe._id}`}
+              className="btn btn-outline-dark"
+            >
+              View Recipe
+            </Link>
           </div>
         </div>
       </section>

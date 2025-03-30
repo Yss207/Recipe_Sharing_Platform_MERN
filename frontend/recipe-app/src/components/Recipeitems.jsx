@@ -5,6 +5,9 @@ import { MdFoodBank } from "react-icons/md";
 import { Link, useLoaderData } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+
 const Recipeitems = () => {
   const navigate = useNavigate();
   const initialRecipes = useLoaderData(); // Load recipes initially
@@ -17,7 +20,7 @@ const Recipeitems = () => {
 
   const onDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/recipe/${id}`);
+      await axios.delete(`${API_BASE_URL}/recipe/${id}`);
       setAllRecipes((recipes) => recipes.filter((recipe) => recipe._id !== id));
       let filterItem = favItems.filter((recipe) => recipe._id !== id);
       localStorage.setItem("fav", JSON.stringify(filterItem));
