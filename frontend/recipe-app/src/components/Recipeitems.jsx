@@ -76,7 +76,7 @@ const Recipeitems = () => {
                 }}
               >
                 <img
-                  src={`http://localhost:5000/images/${item.coverImage}`}
+                  src={`https://recipe-sharing-platform-backend-yayn.onrender.com/images/${item.coverImage}`}
                   alt={item.title}
                   className="card-img-top"
                   style={{

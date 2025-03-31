@@ -68,7 +68,7 @@ const SearchResults = () => {
                 {/* Image */}
                 <div className="p-2 text-center">
                   <img
-                    src={`http://localhost:5000/images/${recipe.coverImage}`}
+                    src={`https://recipe-sharing-platform-backend-yayn.onrender.com/images/${recipe.coverImage}`}
                     alt={recipe.title}
                     className="card-img-top"
                     style={{
