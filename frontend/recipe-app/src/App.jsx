@@ -16,6 +16,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const getAllRecipes = async () => {
   let allRecipes = [];
+  console.log("Fetching all recipes...");
   await axios.get(`https://recipe-sharing-platform-backend-yayn.onrender.com/recipe`).then((res) => {
     allRecipes = res.data;
   });
