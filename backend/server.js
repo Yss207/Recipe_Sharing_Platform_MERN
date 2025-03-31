@@ -12,9 +12,10 @@ connectDB();
 app.use(express.json())
 app.use(
     cors({
-        origin: true,
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true,
+        origin: "https://tasty-tales-ild7.onrender.com", // Your frontend URL
+        methods: "GET,POST,PUT,DELETE",
+        allowedHeaders: "Content-Type,authorization",
+        credentials: true, // If you're handling authentication
     })
 );
 
