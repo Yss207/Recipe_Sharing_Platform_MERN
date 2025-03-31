@@ -21,7 +21,7 @@ const Inputform = ({ setIsOpen }) => {
     const payload = isSignUp ? { name, email, password } : { email, password };
 
     await axios
-      .post(`${API_BASE_URL}/${endpoint}`, payload)
+      .post(`https://tasty-tales-backend.onrender.com/${endpoint}`, payload)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));

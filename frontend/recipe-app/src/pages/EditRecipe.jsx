@@ -15,7 +15,7 @@ const EditRecipe = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/recipe/${id}`, {
+        const response = await axios.get(`https://tasty-tales-backend.onrender.com/recipe/${id}`, {
           headers: { authorization: "Bearer " + localStorage.getItem("token") },
         });
 
@@ -60,7 +60,7 @@ const EditRecipe = () => {
     };
 
     try {
-      await axios.put(`${API_BASE_URL}/recipe/${id}`, updatedRecipeData, {
+      await axios.put(`https://tasty-tales-backend.onrender.com/recipe/${id}`, updatedRecipeData, {
         headers: {
           "Content-Type": "multipart/form-data",
           authorization: "Bearer " + localStorage.getItem("token"),

@@ -24,7 +24,7 @@ const AddFoodRecipe = () => {
     console.log(recipeData);
 
     await axios
-      .post(`${API_BASE_URL}/recipe`, recipeData, {
+      .post(`https://tasty-tales-backend.onrender.com/recipe`, recipeData, {
         headers: {
           "Content-Type": "multipart/form-data",
           authorization: "bearer " + localStorage.getItem("token"),

@@ -20,7 +20,7 @@ const Recipeitems = () => {
 
   const onDelete = async (id) => {
     try {
-      await axios.delete(`${API_BASE_URL}/recipe/${id}`);
+      await axios.delete(`https://tasty-tales-backend.onrender.com/recipe/${id}`);
       setAllRecipes((recipes) => recipes.filter((recipe) => recipe._id !== id));
       let filterItem = favItems.filter((recipe) => recipe._id !== id);
       localStorage.setItem("fav", JSON.stringify(filterItem));

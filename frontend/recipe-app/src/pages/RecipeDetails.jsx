@@ -39,7 +39,7 @@ export default function RecipeDetails() {
       <div className="row align-items-center">
         <div className="col-md-6 text-center">
           <img
-            src={`${API_BASE_URL}/images/${recipe.coverImage}`}
+            src={`https://tasty-tales-backend.onrender.com/images/${recipe.coverImage}`}
             className="img-fluid rounded shadow"
             alt={recipe.title}
             style={{ maxWidth: "100%", borderRadius: "12px" }}

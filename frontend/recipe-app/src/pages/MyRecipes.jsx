@@ -14,7 +14,7 @@ const MyRecipes = () => {
 
   const onDelete = async (id) => {
     if (window.confirm("Are you sure you want to retire this recipe?")) {
-      await axios.delete(`${API_BASE_URL}/recipe/${id}`);
+      await axios.delete(`https://tasty-tales-backend.onrender.com/recipe/${id}`);
       window.location.reload();
     }
   };
@@ -110,7 +110,7 @@ const MyRecipes = () => {
                   }}
                 >
                   <img
-                    src={`${API_BASE_URL}/images/${recipe.coverImage}`}
+                    src={`https://tasty-tales-backend.onrender.com/images/${recipe.coverImage}`}
                     alt={recipe.title}
                     className="card-img-top"
                     style={{

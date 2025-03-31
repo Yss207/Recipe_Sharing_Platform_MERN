@@ -115,7 +115,7 @@ const Favorites = () => {
                   }}
                 >
                   <img
-                    src={`${API_BASE_URL}/images/${recipe.coverImage}`}
+                    src={`https://tasty-tales-backend.onrender.com/images/${recipe.coverImage}`}
                     alt={recipe.title}
                     className="card-img-top"
                     style={{

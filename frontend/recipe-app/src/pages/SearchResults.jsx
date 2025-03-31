@@ -20,7 +20,7 @@ const SearchResults = () => {
         console.log(`Fetching results for: ${searchTerm}`);
 
         const response = await axios.get(
-          `${API_BASE_URL}/recipe/search?query=${searchTerm}`
+          `https://tasty-tales-backend.onrender.com/recipe/search?query=${searchTerm}`
         );
         console.log("API Response:", response.data);
 
