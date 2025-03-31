@@ -15,9 +15,14 @@ const EditRecipe = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`https://tasty-tales-backend.onrender.com/recipe/${id}`, {
-          headers: { authorization: "Bearer " + localStorage.getItem("token") },
-        });
+        const response = await axios.get(
+          `https://recipe-sharing-platform-backend-yayn.onrender.com/recipe/${id}`,
+          {
+            headers: {
+              authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        );
 
         let res = response.data;
 
@@ -60,12 +65,16 @@ const EditRecipe = () => {
     };
 
     try {
-      await axios.put(`https://tasty-tales-backend.onrender.com/recipe/${id}`, updatedRecipeData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      });
+      await axios.put(
+        `https://recipe-sharing-platform-backend-yayn.onrender.com/recipe/${id}`,
+        updatedRecipeData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      );
       navigate("/");
     } catch (err) {
       console.error("Error updating recipe:", err);

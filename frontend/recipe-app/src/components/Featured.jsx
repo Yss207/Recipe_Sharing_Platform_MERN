@@ -14,7 +14,9 @@ const Featured = () => {
   useEffect(() => {
     const fetchRandomRecipe = async () => {
       try {
-        const response = await axios.get(`https://tasty-tales-backend.onrender.com/recipe/random`);
+        const response = await axios.get(
+          `https://recipe-sharing-platform-backend-yayn.onrender.com/recipe/random`
+        );
         setRandomRecipe(response.data);
       } catch (error) {
         setError("Failed to fetch recipe");
@@ -42,7 +44,7 @@ const Featured = () => {
         <div className="row align-items-center">
           <div className="col-md-6 position-relative">
             <img
-              src={`https://tasty-tales-backend.onrender.com/images/${randomRecipe.coverImage}`}
+              src={`https://recipe-sharing-platform-backend-yayn.onrender.com/images/${randomRecipe.coverImage}`}
               alt={randomRecipe.title}
               className="img-fluid rounded"
               style={{

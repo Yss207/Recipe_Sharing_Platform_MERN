@@ -21,9 +21,9 @@ export default function AllRecipes() {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        let url = `https://tasty-tales-backend.onrender.com/recipe`;
+        let url = `https://recipe-sharing-platform-backend-yayn.onrender.com/recipe`;
         if (selectedCategory !== "All") {
-          url = `https://tasty-tales-backend.onrender.com/recipe/category/${encodeURIComponent(
+          url = `https://recipe-sharing-platform-backend-yayn.onrender.com/recipe/category/${encodeURIComponent(
             selectedCategory
           )}`;
         }
@@ -162,7 +162,7 @@ export default function AllRecipes() {
                   }}
                 >
                   <img
-                    src={`https://tasty-tales-backend.onrender.com/images/${recipe.coverImage}`}
+                    src={`https://recipe-sharing-platform-backend-yayn.onrender.com/images/${recipe.coverImage}`}
                     alt={recipe.title}
                     className="card-img-top"
                     style={{

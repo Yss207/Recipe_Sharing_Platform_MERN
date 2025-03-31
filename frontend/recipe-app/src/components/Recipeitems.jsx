@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-
 const Recipeitems = () => {
   const navigate = useNavigate();
   const initialRecipes = useLoaderData(); // Load recipes initially
@@ -20,7 +19,9 @@ const Recipeitems = () => {
 
   const onDelete = async (id) => {
     try {
-      await axios.delete(`https://tasty-tales-backend.onrender.com/recipe/${id}`);
+      await axios.delete(
+        `https://recipe-sharing-platform-backend-yayn.onrender.com/recipe/${id}`
+      );
       setAllRecipes((recipes) => recipes.filter((recipe) => recipe._id !== id));
       let filterItem = favItems.filter((recipe) => recipe._id !== id);
       localStorage.setItem("fav", JSON.stringify(filterItem));
@@ -41,9 +42,7 @@ const Recipeitems = () => {
 
   return (
     <div className="container mt-2">
-      <h2 className="my-3 text-center  fw-bold">
-        Latest Recipes
-      </h2>
+      <h2 className="my-3 text-center  fw-bold">Latest Recipes</h2>
       <div className="row gx-2 gy-3 justify-content-center">
         {allRecipes?.slice(0, 6).map((item) => (
           <div key={item._id} className="col-md-4 col-sm-6">

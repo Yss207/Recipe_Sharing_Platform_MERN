@@ -5,7 +5,6 @@ import { BsStopwatchFill } from "react-icons/bs";
 import { MdFoodBank } from "react-icons/md";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-
 const SearchResults = () => {
   const { searchTerm } = useParams();
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ const SearchResults = () => {
         console.log(`Fetching results for: ${searchTerm}`);
 
         const response = await axios.get(
-          `https://tasty-tales-backend.onrender.com/recipe/search?query=${searchTerm}`
+          `https://recipe-sharing-platform-backend-yayn.onrender.com/recipe/search?query=${searchTerm}`
         );
         console.log("API Response:", response.data);
 
@@ -36,7 +35,7 @@ const SearchResults = () => {
   }, [searchTerm]);
 
   return (
-    <div className="container" style={{marginTop:"60px"}}>
+    <div className="container" style={{ marginTop: "60px" }}>
       <h2 className="text-center mb-4">Search Results for: "{searchTerm}"</h2>
 
       {loading && <p className="text-center">Loading...</p>}
