@@ -16,7 +16,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const getAllRecipes = async () => {
   let allRecipes = [];
-  await axios.get(`${API_BASE_URL}/recipe`).then((res) => {
+  await axios.get(`https://recipe-sharing-platform-backend-yayn.onrender.com/recipe`).then((res) => {
     allRecipes = res.data;
   });
   return allRecipes;
@@ -35,10 +35,10 @@ const getFavRecipes = () => {
 const getRecipe = async ({ params }) => {
   let recipe;
   await axios
-    .get(`${API_BASE_URL}/recipe/${params.id}`)
+    .get(`https://recipe-sharing-platform-backend-yayn.onrender.com/recipe/${params.id}`)
     .then((res) => (recipe = res.data));
 
-  await axios.get(`${API_BASE_URL}/user/${recipe.createdBy}`).then((res) => {
+  await axios.get(`https://recipe-sharing-platform-backend-yayn.onrender.com/user/${recipe.createdBy}`).then((res) => {
     recipe = { ...recipe, email: res.data.email, name: res.data.name };
   });
 
